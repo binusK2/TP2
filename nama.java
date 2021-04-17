@@ -29,26 +29,21 @@ JButton login = new JButton("Submit");
 frame.add(login);
 login.setBounds(100, 70, 90, 20);
 
-login.addActionListener(new ActionListener()
-{
-    public void actionPerformed(ActionEvent e)
+login.addActionListener((ActionEvent e) -> {
+    String nama = textfield.getText();
+    
+    if(nama.length()<6)
     {
-        String nama = textfield.getText();
-        
-        if(nama.length()<6)
-        {
-            JOptionPane.showMessageDialog(frame,
-            "Nama minimal 6 karakter",
-            "Message",
-            JOptionPane.WARNING_MESSAGE);
-        }
-        else
-            JOptionPane.showMessageDialog(frame,
-            "Halo " +nama,
-            "Message",
-            JOptionPane.INFORMATION_MESSAGE);
-        }
+        JOptionPane.showMessageDialog(frame,
+                "Nama minimal 6 karakter",
+                "Message",
+                JOptionPane.WARNING_MESSAGE);
     }
- );
+    else
+        JOptionPane.showMessageDialog(frame,
+                "Halo " +nama,
+                "Message",
+                JOptionPane.INFORMATION_MESSAGE);
+});
 }
 }
